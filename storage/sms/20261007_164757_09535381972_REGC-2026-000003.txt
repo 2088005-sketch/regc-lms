@@ -1,0 +1,6 @@
+TO: 09535381972
+CUSTOMER: xebec
+TRACKING: REGC-2026-000003
+DATE: 2026-10-07 16:47:57
+MESSAGE:
+Hi xebec! Your REGC cargo is en route to DAVAO. Tracking#: REGC-2026-000003. Track: http://localhost/regc-lms/index.php?route=tracking&number=REGC-2026-000003

@@ -1,0 +1,25 @@
+# REGC Trucking Services — Apache Configuration
+# Enable Rewrite Engine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /regc-lms/
+
+    # Keep environment, application internals, data, and diagnostics off the web.
+    RewriteRule ^(?:\.env(?:\..*)?|app|config|includes|database|scratch|tests|storage|debug-login\.php)(?:/|$) - [F,L,NC]
+    RewriteRule ^public/uploads/pod(?:/|$) - [F,L,NC]
+
+    # Direct access to existing files and directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Clean route mapping (e.g. /regc-lms/login -> index.php?route=login)
+    RewriteRule ^([a-zA-Z0-9_-]+)/?$ index.php?route=$1 [QSA,L]
+
+    # Fallback to index.php for all other routes
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Custom Error 404 handling
+ErrorDocument 404 /regc-lms/index.php?route=404
+

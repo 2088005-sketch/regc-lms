@@ -1,0 +1,22 @@
+# Environment & secrets — NEVER commit these
+.env
+
+# Storage / uploads (user-generated content)
+storage/uploads/
+storage/logs/
+storage/*.log
+
+# Scratch / debug files
+scratch/
+debug-login.php
+
+# OS & IDE files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# PHP cache
+*.cache
+
